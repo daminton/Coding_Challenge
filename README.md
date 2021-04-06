@@ -9,8 +9,9 @@ Write a program that accepts an integer as input and produces an output for ever
 
 # Fibonacci Sequence
 The Fibonacci Sequence is the sequence of numbers such that the F(n)=F(n-1)+F(n-2) wheere n is the nth number in the sequence. For example: F(6)=8 and the sequence F(6) is 1,1,2,3,5,8. Write a program that accepts user input, x, and outputs the sequence F(x)
+
     # Additional Requirements(complete what you can)
-        1. Accept input for y and z where F(x)=F(x-y)+F(x-z). Like the original sequence, if F(x-n) does not exist yet in the sequence simply output 1
+        1. Accept input for y and z where F(x)=F(x-y)+F(x-z). Like the original sequence, if       F(x-n) does not exist yet in the sequence simply output 1
 
 # Combine the Two
 Now, combine the two programs. Accept the following inputs
