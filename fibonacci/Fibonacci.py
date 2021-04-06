@@ -75,7 +75,7 @@ class App(Frame):
             try:
                 self.n1, self.n2 = int(self.num_1_entry.get()), int(self.num_2_entry.get())
             except ValueError:
-                self.n1, self.n2 = 0, 1
+                self.n1, self.n2 = 1, 1
             self.count = 0
             self.num_list = []
             # check if the number of terms is valid
@@ -84,7 +84,7 @@ class App(Frame):
             elif int(self.integer_entry.get()) == 1:
                 self.num_list.append(self.n1)
             else:
-                while self.count <= int(self.integer_entry.get()):
+                while self.count <= int(self.integer_entry.get())-1:
                     self.num_list.append(self.n1)
                     self.nth = self.n1 + self.n2
                     # update values
