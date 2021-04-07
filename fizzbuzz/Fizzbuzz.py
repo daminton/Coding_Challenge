@@ -2,9 +2,8 @@ from tkinter import *
 
 root = Tk()
 
-class App(Frame):
+class App():
     def __init__(self, master):
-        Frame.__init__(self, master)
         self.master = master
         master.title('Fizzbuzz')
         master.geometry('400x400')
@@ -46,24 +45,26 @@ class App(Frame):
         self.submit_button_2 = Button(master, text='Submit', command=self.fizzbuzz_with_input) 
         self.submit_button_2.pack()
 
-
     def fizzbuzz_with_input(self):
         try:
             num_list = []
             for fizzbuzz in range(1, int(self.integer_entry.get())+1):
-                if fizzbuzz % int(self.divisor_1_entry.get())== 0 and fizzbuzz % int(self.divisor_2_entry.get()) == 0:
+                fizz = int(self.divisor_1_entry.get())
+                buzz = int(self.divisor_2_entry.get())
+                if fizzbuzz % fizz == 0 and fizzbuzz % buzz == 0:
                     num_list.append('fizzbuzz')
                     continue
-                elif fizzbuzz % int(self.divisor_1_entry.get()) == 0:
+                elif fizzbuzz % fizz == 0:
                     num_list.append('fizz')
                     continue
-                elif fizzbuzz % int(self.divisor_2_entry.get()) == 0:
+                elif fizzbuzz % buzz == 0:
                     num_list.append('buzz')
                     continue
                 num_list.append(fizzbuzz)
             self.answer_2.config(text=num_list)
         except ValueError:
             self.answer_2.config(text='That is not what we are looking for...')
+
     def fizzbuzz(self):        
         try:
             num_list = []
@@ -81,7 +82,7 @@ class App(Frame):
             self.answer.config(text=num_list)
         except ValueError:
             self.answer.config(text='That is not what we are looking for...')
-    
+
 a = App(root)
 root.mainloop()
 
