@@ -150,8 +150,8 @@ class App(Frame):
         except NameError:
             self.answer_2.config(text='Enter Fibonacci ')
 
-    
-a = App(root)
-root.mainloop()
+if __name__ == "__main__":
+    a = App(root)
+    root.mainloop()
 
     

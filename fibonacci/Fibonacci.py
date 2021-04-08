@@ -97,8 +97,8 @@ class App(Frame):
         except ValueError:
             self.answer_2.config(text='1')
 
-    
-a = App(root)
-root.mainloop()
+if __name__ == "__main__":    
+    a = App(root)
+    root.mainloop()
 
     

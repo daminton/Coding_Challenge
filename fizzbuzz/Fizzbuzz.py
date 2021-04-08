@@ -130,7 +130,8 @@ class App():
         except ValueError:
             self.answer.config(text='Add an integer!')
 
-a = App(root)
-root.mainloop()
+if __name__ == "__main__":
+    a = App(root)
+    root.mainloop()
 
     
