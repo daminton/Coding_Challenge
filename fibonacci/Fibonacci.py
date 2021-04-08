@@ -67,7 +67,7 @@ class App(Frame):
                     self.count += 1
             self.answer.config(text=self.num_list)
         except ValueError:
-            self.answer.config(text='Incorrect input')
+            self.answer.config(text='1')
 
     def Fibonacci_with_input(self):
         try:
@@ -83,9 +83,7 @@ class App(Frame):
             self.count = 0
             self.num_list = []
             # check if the number of terms is valid
-            if int(self.integer_entry.get()) <= 0:
-                self.answer_2.config(text="Please enter a positive integer")
-            elif int(self.integer_entry.get()) == 1:
+            if int(self.integer_entry.get()) == 1:
                 self.num_list.append(self.n1)
             else:
                 while self.count < int(self.integer_entry.get()):
@@ -97,7 +95,7 @@ class App(Frame):
                     self.count += 1
             self.answer_2.config(text=self.num_list)
         except ValueError:
-            self.answer_2.config(text='Incorrect input')
+            self.answer_2.config(text='1')
 
     
 a = App(root)
