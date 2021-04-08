@@ -35,6 +35,18 @@ class App(Frame):
         self.submit_button.pack()
 
         #fizzbuzz
+        self.replacement_fizz_label = Label(master, text='Enter a replacement for fizz: ')
+        self.replacement_fizz_label.pack()
+
+        self.replacement_fizz_entry = Entry(master)
+        self.replacement_fizz_entry.pack()
+
+        self.replacement_buzz_label = Label(master, text='Enter a replacement for buzz: ')
+        self.replacement_buzz_label.pack()
+
+        self.replacement_buzz_entry = Entry(master)
+        self.replacement_buzz_entry.pack()
+        
         self.divisor_1_label = Label(master, text='Enter a divisor for fizz: ')
         self.divisor_1_label.pack()
 

@@ -39,6 +39,24 @@ class App():
         self.integer_entry = Entry(master)
         self.integer_entry.pack()
 
+        self.replacement_fizzbuzz_label = Label(master, text='Enter a replacement for fizzbuzz: ')
+        self.replacement_fizzbuzz_label.pack()
+
+        self.replacement_fizzbuzz_entry = Entry(master)
+        self.replacement_fizzbuzz_entry.pack()
+
+        self.replacement_fizz_label = Label(master, text='Enter a replacement for fizz: ')
+        self.replacement_fizz_label.pack()
+
+        self.replacement_fizz_entry = Entry(master)
+        self.replacement_fizz_entry.pack()
+
+        self.replacement_buzz_label = Label(master, text='Enter a replacement for buzz: ')
+        self.replacement_buzz_label.pack()
+
+        self.replacement_buzz_entry = Entry(master)
+        self.replacement_buzz_entry.pack()
+
         self.answer_2 = Label(master, text='')
         self.answer_2.pack()
 
@@ -47,23 +65,52 @@ class App():
 
     def fizzbuzz_with_input(self):
         try:
+            try:
+                fizzbuzz = self.replacement_fizzbuzz_entry.get()
+                if not fizzbuzz:
+                    raise ValueError('empty String')
+            except ValueError:
+                fizzbuzz = 'fizzbuzz'
+            try:
+                fizz = self.replacement_fizz_entry.get()
+                if not fizz:
+                    raise ValueError('empty String')
+            except ValueError:
+                fizz = 'fizz'
+            try:
+                buzz = self.replacement_buzz_entry.get()
+                if not buzz:
+                    raise ValueError('empty String')
+            except ValueError:
+                buzz = 'buzz'
+            try:
+                fizz_num = int(self.divisor_1_entry.get())
+                if not fizz_num:
+                    raise ValueError('empty int')
+            except ValueError:
+                fizz_num = 3
+            try:
+                buzz_num = int(self.divisor_2_entry.get())
+                if not buzz_num:
+                    raise ValueError('empty int')
+            except ValueError:
+                buzz_num = 5
+
             num_list = []
-            for fizzbuzz in range(1, int(self.integer_entry.get())+1):
-                fizz = int(self.divisor_1_entry.get())
-                buzz = int(self.divisor_2_entry.get())
-                if fizzbuzz % fizz == 0 and fizzbuzz % buzz == 0:
-                    num_list.append('fizzbuzz')
+            for i in range(1, int(self.integer_entry.get())+1):
+                if i % fizz_num == 0 and i % buzz_num == 0:
+                    num_list.append(fizzbuzz)
                     continue
-                elif fizzbuzz % fizz == 0:
-                    num_list.append('fizz')
+                elif i % fizz_num == 0:
+                    num_list.append(fizz)
                     continue
-                elif fizzbuzz % buzz == 0:
-                    num_list.append('buzz')
+                elif i % buzz_num == 0:
+                    num_list.append(buzz)
                     continue
-                num_list.append(fizzbuzz)
+                num_list.append(i)
             self.answer_2.config(text=num_list)
         except ValueError:
-            self.answer_2.config(text='That is not what we are looking for...')
+            self.answer_2.config(text='Add an integer!')
 
     def fizzbuzz(self):        
         try:
@@ -81,7 +128,7 @@ class App():
                 num_list.append(fizzbuzz)
             self.answer.config(text=num_list)
         except ValueError:
-            self.answer.config(text='That is not what we are looking for...')
+            self.answer.config(text='Add an integer!')
 
 a = App(root)
 root.mainloop()
